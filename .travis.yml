@@ -1,25 +1,23 @@
 language: node_js
 node_js:
-  - "0.10"
-
+- '0.10'
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - npm install
-  - node node_modules/bower/bin/bower install
-  - cd test
-  - node ../node_modules/bower/bin/bower install
-  - cd ..
-  - sleep 1 # give server time to start
-
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- npm install
+- node node_modules/bower/bin/bower install
+- cd test
+- node ../node_modules/bower/bin/bower install
+- cd ..
+- sleep 1
 script:
-  - node node_modules/karma/bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Firefox
-  - node node_modules/gulp/bin/gulp
-
+- node node_modules/karma/bin/karma start karma.conf.js --no-auto-watch --single-run
+  --reporters=dots --browsers=Firefox
+- node node_modules/gulp/bin/gulp
 deploy:
   provider: divshot
-  api_key: 
-    secure: tpK7+fX+8M07ErT/WNTRW4Z7cErmh+LlF42vBobLXiaOGq85CpE+lOoD8Id//EvDhlNYjafudReJXmnlVtoKvufhvuArnBxRCGcBZpcsN6+xu7FZB1xls2gpngQaKdOgzDioE4pADpcuZHFRI26UPscRXz3JyYsUhMy7qdH052LIB1cIGPRc7Hl7Hu7uP9dyjvP6Vnb4kie5kCdEgyZMoI9pNwyAknSkdwbb8vAoWLmKqIIKdKa5GzlRr3JOjmGxEFP+vlm3O4c1M4jXyvHcrq4zqLyVTWZyr88vnaLRgTlc2BHzCQLnTroq9xQudzuPiWvLTl2KgMJbI3cpD2FenMu79EetIcnDRArvZteIX9A2LB4S6E6nS74EPT9nrdvNR2R5Lk24mftHigBDKdMSquLOmq+s8DG19k9z4Pd/SxmkkZBSRVUcmM+vt71WEM/S40lzDf4W1oSRFNnUJtZT3aYFPCQfOxke06nIRl05sJ+fMkKIKwrAwo2qf6X0h4Te+596Wm2Moh8wIWM6WdOmj7v5uGTdhVXfOHqcseTSKMLwB7YXSs220bAfPr7aR0Xw2GD36oI4zQ/nMYKdW4yH+YoxRnqDD29k7WRNhPLAmVGqFr/FrNXre1BA3Xyh93y52qbz0zYWvhLDxq+U7mOEhdwCcm2MpdfBsWvjzL8Oj2c=
+  api_key:
+    secure: g1QuGEQERR7Z9P/QxqhK1IitYrq0f30n+L0ZGMU4Dpqz+ALthEON0tcLYv3HGjUz13qejbIoZFoxkT5mVz1CyJZQINaoBQdJRgG65mqqgvfRdlqLSGrXLMX0Wc97ogH6+P9mG1RcJ8KvG4LU8Qd0GJoHmOv2PQCqmaj31393pFQi/2+hv7pymQ1lK/sFBTewUMuZqcPdDJHZAf91pgJrCKe6DoiMlVs2LkUMSsJQkoto23XBaT4Bz9vTZGcWhOB8/QXwC5kVh7P0sj1wikdQmK4v38/fuHrRQnddKA3SMv/QAH9PQ/gMkzC8+0tE51L+h+52VV+J2gQTcqlzgwrseTmrAGiY5gF42zzn5YJeqGdgq1mhBXQjmoobkSDbTYjeRCk6iRtJ1jhErg3CFvMrp6jCImmpp8VHZRL30V7R3HZ+amrSUA9m5G8zvboCsDZQ+UrXVEMx3RR7xvDIsYBBRjNnQ+fKgdx8zbDO6PWYwD2q8hUZ188jE3w8kxkxLcoZt4/uHPn8tX2ZmCxG2Kn3EMeVPf3A3WRdeLRYSNOVfH434NtSUmdv0oCQbvGKnUiAFzQC0pXFqkXGVCm8UQjRkoUkdCWiiJ7UmxQENaSPb9fSkp1aDuFmAHJxbv4M/lJtD5CKTwXJ94OqgGYAGB/m1KrdoXSu/YBOfLoO7l/6SVw=
   environment:
     master: development
   skip_cleanup: true
