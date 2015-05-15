@@ -9,7 +9,6 @@ before_script:
   - cd test
   - node ../node_modules/bower/bin/bower install
   - cd ..
-  - sleep 1 # give server time to start
 
 script:
   - node node_modules/karma/bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Chrome
