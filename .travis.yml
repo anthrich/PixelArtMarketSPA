@@ -1,23 +1,23 @@
 language: node_js
 node_js:
-- '0.10'
+  - "0.10"
 
 before_script:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- npm install
-- node node_modules/bower/bin/bower install
-- cd test
-- node ../node_modules/bower/bin/bower install
-- cd ..
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - npm install
+  - node node_modules/bower/bin/bower install
+  - cd test
+  - node ../node_modules/bower/bin/bower install
+  - cd ..
 
 script:
-- node node_modules/karma/bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Firefox
-- node node_modules/gulp/bin/gulp
+  - node node_modules/karma/bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Firefox
+  - node node_modules/gulp/bin/gulp
 
 deploy:
   provider: divshot
-  api_key:
+  api_key: 
     secure: CCaoLCUvj3ujcYSuc10BwMPGlwOmc+HQBizJWze7A+4NqiJ1SI7gFgOQLe9z5Ek+kbTRRbQywhFefXi7ONvPpgD4eAZViW5RLvNoXes6rUkgMPqpEfHB8/z/hRgabHenpu70Z6nNZU1TdZSIc7k8TnKH//idhe3xhOl0z3ZHpiHWqHZ+el/rW8EnDN2mXoDueRJiXohUO/5/Exb1eKuBgFBlrHkjhHJmUBVshsPiQU2EMDdKTDJmdDcX4FjQfQC415d6smTaAe3iljPWBmaRKw01zCQ/JooeQN5L6JECDx4SRI7oZyTWE906PATUvNygrO9QRDoKAiU+JqfKHe1PGjdsGiECl4XsPImpUGU0MfCqJklJmhvF01xlTz6DJpRTN6oYOO3vurPcwkh7d8VSn/gOafmnhdVw1gJ/nvH12bY053a0ZYCVE89XKQ9RlcdbOkkfILzM1QkmCseaF3rYiliRDfFCJA0nyOREbzYUlL6vFrOBAxm75AefSdWOkaazMND+2lmjyZU/kHEL8ZTvYqtQCvakl0A8WgeD63cY9Q+dbTH25eKmMHFvwdSWQ/eAhEdueK/gzfQ/p8qCAS/GygBd92WlWesipK5/bPEtQt8jiGgAB1akzddimvJTLbN414r4nkOwMicq+OXBcdT2YKcz/IwHwkLSwEmCdGkeJH4=
   environment:
     master: Development
