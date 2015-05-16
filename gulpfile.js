@@ -18,6 +18,7 @@ var requireJsRuntimeConfig = vm.runInNewContext(fs.readFileSync('src/app/require
             'requireLib',
             'components/nav-bar/nav-bar',
             'components/home-page/home',
+            'components/product-tile/product-tile',
             'text!components/about-page/about.html'
         ],
         insertRequire: ['app/startup'],
@@ -57,13 +58,18 @@ gulp.task('html', function() {
         .pipe(gulp.dest('./dist/'));
 });
 
+gulp.task('images', function(){
+  gulp.src('./src/img/*')
+  .pipe(gulp.dest('./dist/img'));
+});
+
 // Removes all files from ./dist/
 gulp.task('clean', function() {
     return gulp.src('./dist/**/*', { read: false })
         .pipe(clean());
 });
 
-gulp.task('default', ['html', 'js', 'css'], function(callback) {
+gulp.task('default', ['html', 'js', 'css', 'images'], function(callback) {
     callback();
     console.log('\nPlaced optimized files in ' + chalk.magenta('dist/\n'));
 });
