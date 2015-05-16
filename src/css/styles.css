@@ -1,3 +1,26 @@
-#page {
+html {
+	height: 100%;
+}
+
+body {
+	height: -moz-calc(100% - 80px);
+	height: -webkit-calc(100% - 80px);
+	height: calc(100% - 80px);
 	margin-top: 80px;
+}
+
+.element::-webkit-scrollbar { width: 0 !important }
+
+.element { -ms-overflow-style: none; }
+
+.container {
+	position: relative;
+	height:100%;
+}
+
+.products-component {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	overflow-y: scroll; 
 }

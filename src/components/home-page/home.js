@@ -3,18 +3,26 @@
 	function HomeViewModel(params) {
 		var self = this;
 
+		// Settings
+		self.pageSize = 10;
+
+		self.productService = params.productService;
+
 		self.products = ko.observableArray();
 
 	    //INIT
-		var serviceProducts = params.productService.getProducts(0, 10);
+		var serviceProducts = self.productService.getProducts(0, self.pageSize);
 		self.products.push.apply(self.products, serviceProducts);
-		
-		console.log();
 	};
 
-	HomeViewModel.prototype.doSomething = function() {
-		this.message('You invoked doSomething() on the viewmodel.');
-	};
+	HomeViewModel.prototype.scrolled = function(data, event) {
+        var elem = event.target;
+        if (elem.scrollTop > (elem.scrollHeight - elem.offsetHeight - 200)) {
+            var skip = data.products().length;
+            var serviceProducts = data.productService.getProducts(skip, data.pageSize);
+            data.products.push.apply(data.products, serviceProducts);
+        }
+    }
 
 	return { viewModel: HomeViewModel, template: homeTemplate };
 
