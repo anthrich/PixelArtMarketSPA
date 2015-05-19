@@ -5,9 +5,16 @@ html {
 body {
 	height: -moz-calc(100% - 80px);
 	height: -webkit-calc(100% - 80px);
-	height: calc(100% - 80px);
-	margin-top: 80px;
+	height: calc(100% - 51px);
+	margin-top: 51px;
 }
+
+@media (min-width: 1920px) {
+	.container {
+	  width: 1890px;
+	}
+}
+
 
 .element::-webkit-scrollbar { width: 0 !important }
 
@@ -19,8 +26,24 @@ body {
 }
 
 .products-component {
+	padding-top: 13px;
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	overflow-y: scroll; 
+	top: 10px;
+	bottom: 10px;
+	right: 4px;
+	left:4px;
+	border: 1px solid #ddd;
+  	border-radius: 4px;
+	overflow-y: scroll;
 }
+
+.products-component-shadow {
+	box-shadow: inset 1px -50px 30px -29px #ABABAB;
+	-webkit-box-shadow: inset 1px -50px 30px -29px #ABABAB;
+	-moz-box-shadow: inset 1px -50px 30px -29px #ABABAB;
+	-o-box-shadow: inset 1px -50px 30px -29px #ABABAB;
+}
+
+.products-component::-webkit-scrollbar { width: 0 !important }
+
+.products-component { -ms-overflow-style: none; }
