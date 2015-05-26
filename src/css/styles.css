@@ -9,18 +9,12 @@ body {
 	margin-top: 51px;
 }
 
-@media (min-width: 1920px) {
-	.container {
-	  width: 1890px;
-	}
-}
-
 
 .element::-webkit-scrollbar { width: 0 !important }
 
 .element { -ms-overflow-style: none; }
 
-.container {
+.container-fluid {
 	position: relative;
 	height:100%;
 }
